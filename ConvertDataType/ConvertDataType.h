@@ -10,6 +10,9 @@
 #include <iostream>
 #include <Windows.h>
 
+// https://github.com/MoongStory/Exception
+#include "../../Exception/Exception/Exception.h"
+
 namespace MOONG
 {
 	// GitHub 历厘家 促矫 积己.
@@ -20,9 +23,9 @@ namespace MOONG
 	private:
 
 	public:
-		static const std::string wstring_to_string(const std::wstring wstr);
-		static const std::wstring string_to_wstring(const std::string str);
-		static const std::string dword_to_string(const DWORD dword);
+		static const std::string wstring_to_string(const std::wstring wstr) noexcept(false);
+		static const std::wstring string_to_wstring(const std::string str) noexcept(false);
+		static const std::string dword_to_string(const DWORD dword) noexcept(true);
 	protected:
 	private:
 	};

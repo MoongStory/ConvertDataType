@@ -25,7 +25,7 @@ namespace MOONG
 	public:
 		static const std::string wstring_to_string(const std::wstring wstr) noexcept(false);
 		static const std::wstring string_to_wstring(const std::string str) noexcept(false);
-		static const std::string dword_to_string(const DWORD dword) noexcept(true);
+		static const std::string dword_to_string(const DWORD dword);
 	protected:
 	private:
 	};

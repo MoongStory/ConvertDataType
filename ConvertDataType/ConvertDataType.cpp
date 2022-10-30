@@ -68,7 +68,7 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
     return return_string;
 }
 
-const std::string MOONG::ConvertDataType::dword_to_string(const DWORD dword) noexcept(true)
+const std::string MOONG::ConvertDataType::dword_to_string(const DWORD dword)
 {
     std::ostringstream stream;
     stream << dword;

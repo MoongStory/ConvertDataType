@@ -21,7 +21,7 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
     }
     catch (const std::bad_alloc& exception)
     {
-        throw MOONG::Exception(MOONG::EXCEPTION::CODE::BAD_ALLOC, exception.what());
+        throw exception;
     }
 
 #if _MSC_VER > 1200
@@ -51,7 +51,7 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
     }
     catch (const std::exception& exception)
     {
-        throw MOONG::Exception(MOONG::EXCEPTION::CODE::BAD_ALLOC, exception.what());
+        throw exception;
     }
 
 #if _MSC_VER > 1200
@@ -72,5 +72,12 @@ const std::string MOONG::ConvertDataType::dword_to_string(const DWORD dword)
 {
     std::ostringstream stream;
     stream << dword;
+    return stream.str();
+}
+
+const std::string MOONG::ConvertDataType::int_to_string(const int integer)
+{
+    std::ostringstream stream;
+    stream << integer;
     return stream.str();
 }

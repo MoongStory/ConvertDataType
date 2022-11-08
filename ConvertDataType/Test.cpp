@@ -38,5 +38,10 @@ int main()
 	int integer = 123;
 	std::cout << "int to std::string[" << MOONG::ConvertDataType::int_to_string(integer).c_str() << "]" << std::endl;
 
+	std::cout << std::endl;
+
+	unsigned int unsigned_integer = 123;
+	std::cout << "unsigned int to std::string[" << MOONG::ConvertDataType::unsigned_int_to_string(unsigned_integer).c_str() << "]" << std::endl;
+
 	return 0;
 }

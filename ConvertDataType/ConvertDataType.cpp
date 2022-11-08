@@ -49,7 +49,7 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
     {
         nstring = new wchar_t[new_size];
     }
-    catch (const std::exception& exception)
+    catch (const std::bad_alloc& exception)
     {
         throw exception;
     }
@@ -79,5 +79,12 @@ const std::string MOONG::ConvertDataType::int_to_string(const int integer)
 {
     std::ostringstream stream;
     stream << integer;
+    return stream.str();
+}
+
+const std::string MOONG::ConvertDataType::unsigned_int_to_string(const unsigned int unsigned_int)
+{
+    std::ostringstream stream;
+    stream << unsigned_int;
     return stream.str();
 }

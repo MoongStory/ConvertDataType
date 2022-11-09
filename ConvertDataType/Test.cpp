@@ -10,7 +10,7 @@ int main()
 		std::string string_dummy(MOONG::ConvertDataType::wstring_to_string(wchar_dummy));
 		std::cout << string_dummy.c_str() << std::endl;
 	}
-	catch (const std::bad_alloc& exception)
+	catch (const std::exception& exception)
 	{
 		std::cout << exception.what() << std::endl;
 	}
@@ -23,7 +23,7 @@ int main()
 		std::wstring wstring_dummy(MOONG::ConvertDataType::string_to_wstring(char_dummy));
 		std::wcout << wstring_dummy.c_str() << std::endl;
 	}
-	catch (const std::bad_alloc& exception)
+	catch (const std::exception& exception)
 	{
 		std::cout << exception.what() << std::endl;
 	}

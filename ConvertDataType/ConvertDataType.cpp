@@ -19,7 +19,7 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
     {
         nstring = new char[new_size];
     }
-    catch (const std::bad_alloc& exception)
+    catch (const std::exception& exception)
     {
         throw exception;
     }
@@ -49,7 +49,7 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
     {
         nstring = new wchar_t[new_size];
     }
-    catch (const std::bad_alloc& exception)
+    catch (const std::exception& exception)
     {
         throw exception;
     }

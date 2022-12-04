@@ -68,21 +68,21 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
     return return_string;
 }
 
-const std::string MOONG::ConvertDataType::dword_to_string(const DWORD dword)
+const std::string MOONG::ConvertDataType::toString(const DWORD dword)
 {
     std::ostringstream stream;
     stream << dword;
     return stream.str();
 }
 
-const std::string MOONG::ConvertDataType::int_to_string(const int integer)
+const std::string MOONG::ConvertDataType::toString(const int integer)
 {
     std::ostringstream stream;
     stream << integer;
     return stream.str();
 }
 
-const std::string MOONG::ConvertDataType::unsigned_int_to_string(const unsigned int unsigned_int)
+const std::string MOONG::ConvertDataType::toString(const unsigned int unsigned_int)
 {
     std::ostringstream stream;
     stream << unsigned_int;

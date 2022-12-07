@@ -24,12 +24,23 @@ namespace MOONG
 		static const std::string toString(const int integer);
 		static const std::string toString(const unsigned int unsigned_int);
 
+		static const std::string seconds_to_data(const unsigned long seconds);
+
 		static const int string_to_integer(const std::string str);
-		static const std::wstring string_to_wstring(const std::string str) noexcept(false);
-		static const std::string wstring_to_string(const std::wstring wstr) noexcept(false);
+		static const std::wstring string_to_wstring(const std::string str);
+		static const std::string wstring_to_string(const std::wstring wstr);
 
 	protected:
 	private:
+		template <typename T>
+		static const std::string toString(const T parameter);
 	};
+	template<typename T>
+	inline const std::string ConvertDataType::toString(const T parameter)
+	{
+		std::ostringstream stream;
+		stream << parameter;
+		return stream.str();
+	}
 }
 #endif	// _CONVERT_DATA_TYPE_H_

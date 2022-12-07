@@ -4,6 +4,26 @@
 
 int main()
 {
+	DWORD dword = 123;
+	std::cout << "toString DWORD[" << MOONG::ConvertDataType::toString(dword).c_str() << "]" << std::endl;
+
+	std::cout << std::endl;
+
+	int integer = 123;
+	std::cout << "toString int[" << MOONG::ConvertDataType::toString(integer).c_str() << "]" << std::endl;
+
+	std::cout << std::endl;
+
+	unsigned int unsigned_integer = 123;
+	std::cout << "toString unsigned int[" << MOONG::ConvertDataType::toString(unsigned_integer).c_str() << "]" << std::endl;
+
+	std::cout << std::endl;
+
+	unsigned long seconds = (55 * 24 * 60 * 60 * 1) + (2 * 60 * 60 * 1) + (61 * 60 * 1) + (60 * 1);
+	std::cout << "toString unsigned int[" << MOONG::ConvertDataType::seconds_to_data(seconds).c_str() << "]" << std::endl;
+
+	std::cout << std::endl;
+
 	try
 	{
 		const wchar_t* wchar_dummy = L"wstring to string, 한글 테스트";
@@ -27,21 +47,6 @@ int main()
 	{
 		std::cout << exception.what() << std::endl;
 	}
-
-	std::cout << std::endl;
-
-	DWORD dword = 123;
-	std::cout << "DWORD to std::string[" << MOONG::ConvertDataType::toString(dword).c_str() << "]" << std::endl;
-
-	std::cout << std::endl;
-
-	int integer = 123;
-	std::cout << "int to std::string[" << MOONG::ConvertDataType::toString(integer).c_str() << "]" << std::endl;
-
-	std::cout << std::endl;
-
-	unsigned int unsigned_integer = 123;
-	std::cout << "unsigned int to std::string[" << MOONG::ConvertDataType::toString(unsigned_integer).c_str() << "]" << std::endl;
 
 	std::cout << std::endl;
 

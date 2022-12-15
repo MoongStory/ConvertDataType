@@ -26,7 +26,7 @@ int main()
 
 	try
 	{
-		const wchar_t* wchar_dummy = L"wstring to string, 한글 테스트";
+		const wchar_t* wchar_dummy = L"wstring_to_string, 한글 테스트";
 		std::string string_dummy(MOONG::ConvertDataType::wstring_to_string(wchar_dummy));
 		std::cout << string_dummy.c_str() << std::endl;
 	}
@@ -39,7 +39,7 @@ int main()
 
 	try
 	{
-		const char* char_dummy = "string to wstring, 한글 테스트";
+		const char* char_dummy = "string_to_wstring, 한글 테스트";
 		std::wstring wstring_dummy(MOONG::ConvertDataType::string_to_wstring(char_dummy));
 		std::wcout << wstring_dummy.c_str() << std::endl;
 	}
@@ -51,7 +51,14 @@ int main()
 	std::cout << std::endl;
 
 	std::string string_number = "123";
-	std::cout << "std::string to integer[" << MOONG::ConvertDataType::string_to_integer(string_number) + 1 << "]" << std::endl;
+	std::cout << "string_to_integer[" << MOONG::ConvertDataType::string_to_integer(string_number) + 1 << "]" << std::endl;
+
+	std::cout << std::endl;
+
+	unsigned __int64 int64_value = 3;
+	std::cout << "unsigned_int64_to_double[" << MOONG::ConvertDataType::unsigned_int64_to_double(int64_value) + 1.1 << "]" << std::endl;
+
+	std::cout << std::endl;
 
 	return 0;
 }

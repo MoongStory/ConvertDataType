@@ -12,7 +12,6 @@
 
 namespace MOONG
 {
-	// GitHub 历厘家 促矫 积己.
 	class ConvertDataType
 	{
 	public:
@@ -29,6 +28,8 @@ namespace MOONG
 		static const int string_to_integer(const std::string str);
 		static const std::wstring string_to_wstring(const std::string str);
 		static const std::string wstring_to_string(const std::wstring wstr);
+
+		static double unsigned_int64_to_double(unsigned __int64 unsigned_int64_value);
 
 	protected:
 	private:

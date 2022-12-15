@@ -156,3 +156,16 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
 
     return return_string;
 }
+
+double MOONG::ConvertDataType::unsigned_int64_to_double(unsigned __int64 unsigned_int64_value)
+{
+    __int64 i64 = (unsigned_int64_value & 0x7FFFFFFFFFFFFFF);
+    double dbl = (double) i64;
+
+    if (unsigned_int64_value & 0x8000000000000000)
+	{
+        dbl += (double) 0x8000000000000000;
+	}
+
+    return dbl; 
+}

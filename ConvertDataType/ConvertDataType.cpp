@@ -11,17 +11,35 @@
 
 const std::string MOONG::ConvertDataType::toString(const DWORD dword)
 {
+#if _MSC_VER > 1200
 	return MOONG::ConvertDataType::toString<const DWORD>(dword);
+#else
+	std::ostringstream stream;
+	stream << dword;
+	return stream.str();
+#endif
 }
 
 const std::string MOONG::ConvertDataType::toString(const int integer)
 {
+#if _MSC_VER > 1200
 	return MOONG::ConvertDataType::toString<const int>(integer);
+#else
+	std::ostringstream stream;
+	stream << integer;
+	return stream.str();
+#endif
 }
 
 const std::string MOONG::ConvertDataType::toString(const unsigned int unsigned_int)
 {
+#if _MSC_VER > 1200
 	return MOONG::ConvertDataType::toString<const unsigned int>(unsigned_int);
+#else
+	std::ostringstream stream;
+	stream << unsigned_int;
+	return stream.str();
+#endif
 }
 
 const std::string MOONG::ConvertDataType::seconds_to_data(const unsigned long seconds)

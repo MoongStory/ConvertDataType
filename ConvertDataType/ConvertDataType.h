@@ -30,18 +30,17 @@ namespace MOONG
 		static const std::string wstring_to_string(const std::wstring wstr);
 
 		static double unsigned_int64_to_double(unsigned __int64 unsigned_int64_value);
-
 	protected:
 	private:
+#if _MSC_VER > 1200
 		template <typename T>
-		static const std::string toString(const T parameter);
+		inline static const std::string toString(const T parameter)
+		{
+			std::ostringstream stream;
+			stream << parameter;
+			return stream.str();
+		}
+#endif
 	};
-	template<typename T>
-	inline const std::string ConvertDataType::toString(const T parameter)
-	{
-		std::ostringstream stream;
-		stream << parameter;
-		return stream.str();
-	}
 }
 #endif	// _CONVERT_DATA_TYPE_H_

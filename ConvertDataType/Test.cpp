@@ -30,10 +30,17 @@ int main()
 
 	std::cout << std::endl;
 
-	std::string utf8 = MOONG::ConvertDataType::wstring_to_utf8(L"대한민국");
+	std::string utf8 = MOONG::ConvertDataType::wstring_to_utf8(L"wstring_to_utf8, 한글 테스트");
 	std::cout << "wstring_to_utf8[" << utf8 << "]" << std::endl;
 	std::wstring wstr = MOONG::ConvertDataType::utf8_to_wstring(utf8);
 	std::wcout << L"utf8_to_wstring[" << wstr << L"]" << std::endl;
+
+	std::cout << std::endl;
+
+	utf8 = MOONG::ConvertDataType::string_to_utf8("string_to_utf8, 한글 테스트");
+	std::cout << "string_to_utf8[" << utf8 << "]" << std::endl;
+	std::string str = MOONG::ConvertDataType::utf8_to_string(utf8);
+	std::cout << "utf8_to_string[" << str << "]" << std::endl;
 
 	std::cout << std::endl;
 

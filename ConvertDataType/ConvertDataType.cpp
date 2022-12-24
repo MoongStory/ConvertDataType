@@ -154,6 +154,11 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
 	return wstr;
 }
 
+const std::string MOONG::ConvertDataType::string_to_utf8(const std::string str)
+{
+	return MOONG::ConvertDataType::wstring_to_utf8(MOONG::ConvertDataType::string_to_wstring(str));
+}
+
 const std::wstring MOONG::ConvertDataType::utf8_to_wstring(const std::string str)
 {
 	setlocale(LC_ALL, "korean");    // 이 코드가 있어야 한글이 제대로 출력됨.
@@ -191,6 +196,11 @@ const std::wstring MOONG::ConvertDataType::utf8_to_wstring(const std::string str
 	);
 
 	return wstr;
+}
+
+const std::string MOONG::ConvertDataType::utf8_to_string(const std::string str)
+{
+	return MOONG::ConvertDataType::wstring_to_string(MOONG::ConvertDataType::utf8_to_wstring(str));
 }
 
 const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring wstr)

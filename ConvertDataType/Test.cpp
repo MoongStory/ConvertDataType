@@ -24,16 +24,9 @@ int main()
 
 	std::cout << std::endl;
 
-	try
-	{
-		const wchar_t* wchar_dummy = L"wstring_to_string, 한글 테스트";
-		std::string string_dummy(MOONG::ConvertDataType::wstring_to_string(wchar_dummy));
-		std::cout << string_dummy.c_str() << std::endl;
-	}
-	catch (const std::exception& exception)
-	{
-		std::cout << exception.what() << std::endl;
-	}
+	const wchar_t* wchar_dummy = L"wstring_to_string, 한글 테스트";
+	std::string string_dummy(MOONG::ConvertDataType::wstring_to_string(wchar_dummy));
+	std::cout << string_dummy.c_str() << std::endl;
 
 	std::cout << std::endl;
 
@@ -44,16 +37,9 @@ int main()
 
 	std::cout << std::endl;
 
-	try
-	{
-		const char* char_dummy = "string_to_wstring, 한글 테스트";
-		std::wstring wstring_dummy(MOONG::ConvertDataType::string_to_wstring(char_dummy));
-		std::wcout << wstring_dummy.c_str() << std::endl;
-	}
-	catch (const std::exception& exception)
-	{
-		std::cout << exception.what() << std::endl;
-	}
+	const char* char_dummy = "string_to_wstring, 한글 테스트";
+	std::wstring wstring_dummy(MOONG::ConvertDataType::string_to_wstring(char_dummy));
+	std::wcout << wstring_dummy.c_str() << std::endl;
 
 	std::cout << std::endl;
 

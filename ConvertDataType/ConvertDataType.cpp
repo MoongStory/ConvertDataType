@@ -145,6 +145,43 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
     return return_string;
 }
 
+const std::wstring MOONG::ConvertDataType::utf8_to_wstring(const std::string str)
+{
+	std::wstring wstr = L"";
+
+	if (true == str.empty())
+	{
+		return wstr;
+	}
+
+	int required_cch = ::MultiByteToWideChar(
+		CP_UTF8,
+		MB_ERR_INVALID_CHARS,
+		str.c_str(),
+		static_cast<int>(str.size()),
+		nullptr,
+		0
+	);
+
+	if (0 == required_cch)
+	{
+		return wstr;
+	}
+
+	wstr.resize(required_cch);
+
+	MultiByteToWideChar(
+		CP_UTF8,
+		MB_ERR_INVALID_CHARS,
+		str.c_str(),
+		static_cast<int>(str.length()),
+		const_cast<wchar_t*>(wstr.c_str()),
+		static_cast<int>(wstr.size())
+	);
+
+	return wstr;
+}
+
 const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring wstr)
 {
     setlocale(LC_ALL, "korean");    // 이 코드가 있어야 한글이 제대로 출력됨.
@@ -173,6 +210,46 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
     delete[] nstring;
 
     return return_string;
+}
+
+const std::string MOONG::ConvertDataType::wstring_to_utf8(const std::wstring wstr)
+{
+    std::string utf8 = "";
+
+    if (true == wstr.empty())
+    {
+        return utf8;
+    }
+
+	int required_cch = ::WideCharToMultiByte(
+		CP_UTF8,
+		WC_ERR_INVALID_CHARS,
+		wstr.c_str(),
+		static_cast<int>(wstr.size()),
+		nullptr,
+		0,
+		nullptr,
+		nullptr
+	);
+
+	if (0 == required_cch)
+	{
+		return utf8;
+	}
+
+	utf8.resize(required_cch);
+
+	WideCharToMultiByte(
+		CP_UTF8,
+		WC_ERR_INVALID_CHARS,
+		wstr.c_str(), static_cast<int>(wstr.size()),
+		const_cast<char*>(utf8.c_str()),
+		static_cast<int>(utf8.size()),
+		nullptr,
+		nullptr
+	);
+
+	return utf8;
 }
 
 double MOONG::ConvertDataType::unsigned_int64_to_double(unsigned __int64 unsigned_int64_value)

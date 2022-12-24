@@ -37,6 +37,13 @@ int main()
 
 	std::cout << std::endl;
 
+	std::string utf8 = MOONG::ConvertDataType::wstring_to_utf8(L"대한민국");
+	std::cout << "wstring_to_utf8[" << utf8 << "]" << std::endl;
+	std::wstring wstr = MOONG::ConvertDataType::utf8_to_wstring(utf8);
+	std::wcout << L"utf8_to_wstring[" << wstr << L"]" << std::endl;
+
+	std::cout << std::endl;
+
 	try
 	{
 		const char* char_dummy = "string_to_wstring, 한글 테스트";

@@ -31,22 +31,42 @@ int main()
 	std::cout << std::endl;
 
 	std::string utf8 = MOONG::ConvertDataType::wstring_to_utf8(L"wstring_to_utf8, 한글 테스트");
-	std::cout << "wstring_to_utf8[" << utf8 << "]" << std::endl;
+#if _MSC_VER > 1200
+	std::cout << "wstring_to_utf8[" << utf8.c_str() << "]" << std::endl;
+#else
+	printf("wstring_to_utf8[%s]\n", utf8.c_str());
+#endif
 	std::wstring wstr = MOONG::ConvertDataType::utf8_to_wstring(utf8);
+#if _MSC_VER > 1200
 	std::wcout << L"utf8_to_wstring[" << wstr << L"]" << std::endl;
+#else
+ 	printf("utf8_to_wstring[%ws]\n", wstr.c_str());
+#endif
 
 	std::cout << std::endl;
 
 	utf8 = MOONG::ConvertDataType::string_to_utf8("string_to_utf8, 한글 테스트");
-	std::cout << "string_to_utf8[" << utf8 << "]" << std::endl;
+#if _MSC_VER > 1200
+	std::cout << "string_to_utf8[" << utf8.c_str() << "]" << std::endl;
+#else
+	printf("string_to_utf8[%s]\n", utf8.c_str());
+#endif
 	std::string str = MOONG::ConvertDataType::utf8_to_string(utf8);
-	std::cout << "utf8_to_string[" << str << "]" << std::endl;
+#if _MSC_VER > 1200
+	std::cout << "utf8_to_string[" << str.c_str() << "]" << std::endl;
+#else
+	printf("utf8_to_string[%s]\n", str.c_str());
+#endif
 
 	std::cout << std::endl;
 
 	const char* char_dummy = "string_to_wstring, 한글 테스트";
 	std::wstring wstring_dummy(MOONG::ConvertDataType::string_to_wstring(char_dummy));
+#if _MSC_VER > 1200
 	std::wcout << wstring_dummy.c_str() << std::endl;
+#else
+	printf("%ws\n", wstring_dummy.c_str());
+#endif
 
 	std::cout << std::endl;
 

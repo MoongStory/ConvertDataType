@@ -1,3 +1,5 @@
+//#include "StdAfx.h"
+
 #include "ConvertDataType.h"
 
 #if _MSC_VER > 1200
@@ -126,6 +128,7 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
 		return wstr;
 	}
 
+#if _MSC_VER > 1200
 	int required_cch = MultiByteToWideChar(
 		CP_ACP,
 		0,
@@ -134,6 +137,16 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
 		nullptr,
 		0
 	);
+#else
+	int required_cch = MultiByteToWideChar(
+		CP_ACP,
+		0,
+		str.c_str(),
+		static_cast<int>(str.size()),
+		NULL,
+		0
+	);
+#endif
 
 	if (0 == required_cch)
 	{
@@ -170,6 +183,7 @@ const std::wstring MOONG::ConvertDataType::utf8_to_wstring(const std::string str
 		return wstr;
 	}
 
+#if _MSC_VER > 1200
 	int required_cch = MultiByteToWideChar(
 		CP_UTF8,
 		MB_ERR_INVALID_CHARS,
@@ -178,6 +192,16 @@ const std::wstring MOONG::ConvertDataType::utf8_to_wstring(const std::string str
 		nullptr,
 		0
 	);
+#else
+	int required_cch = MultiByteToWideChar(
+		CP_UTF8,
+		MB_ERR_INVALID_CHARS,
+		str.c_str(),
+		static_cast<int>(str.size()),
+		NULL,
+		0
+	);
+#endif
 
 	if (0 == required_cch)
 	{
@@ -214,6 +238,7 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
 		return str;
 	}
 
+#if _MSC_VER > 1200
 	int required_cch = WideCharToMultiByte(
 		CP_ACP,
 		0,
@@ -224,6 +249,18 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
 		nullptr,
 		nullptr
 	);
+#else
+	int required_cch = WideCharToMultiByte(
+		CP_ACP,
+		0,
+		wstr.c_str(),
+		static_cast<int>(wstr.size()),
+		NULL,
+		0,
+		NULL,
+		NULL
+	);
+#endif
 
 	if (0 == required_cch)
 	{
@@ -232,6 +269,7 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
 
 	str.resize(required_cch);
 
+#if _MSC_VER > 1200
 	WideCharToMultiByte(
 		CP_ACP,
 		0,
@@ -242,6 +280,18 @@ const std::string MOONG::ConvertDataType::wstring_to_string(const std::wstring w
 		nullptr,
 		nullptr
 	);
+#else
+	WideCharToMultiByte(
+		CP_ACP,
+		0,
+		wstr.c_str(),
+		static_cast<int>(wstr.size()),
+		const_cast<char*>(str.c_str()),
+		static_cast<int>(str.size()),
+		NULL,
+		NULL
+	);
+#endif
 
 	return str;
 }
@@ -257,6 +307,7 @@ const std::string MOONG::ConvertDataType::wstring_to_utf8(const std::wstring wst
 		return utf8;
 	}
 
+#if _MSC_VER > 1200
 	int required_cch = WideCharToMultiByte(
 		CP_UTF8,
 		WC_ERR_INVALID_CHARS,
@@ -267,6 +318,18 @@ const std::string MOONG::ConvertDataType::wstring_to_utf8(const std::wstring wst
 		nullptr,
 		nullptr
 	);
+#else
+	int required_cch = WideCharToMultiByte(
+		CP_UTF8,
+		0,
+		wstr.c_str(),
+		static_cast<int>(wstr.size()),
+		NULL,
+		0,
+		NULL,
+		NULL
+	);
+#endif
 
 	if (0 == required_cch)
 	{
@@ -275,6 +338,7 @@ const std::string MOONG::ConvertDataType::wstring_to_utf8(const std::wstring wst
 
 	utf8.resize(required_cch);
 
+#if _MSC_VER > 1200
 	WideCharToMultiByte(
 		CP_UTF8,
 		WC_ERR_INVALID_CHARS,
@@ -284,6 +348,17 @@ const std::string MOONG::ConvertDataType::wstring_to_utf8(const std::wstring wst
 		nullptr,
 		nullptr
 	);
+#else
+	WideCharToMultiByte(
+		CP_UTF8,
+		0,
+		wstr.c_str(), static_cast<int>(wstr.size()),
+		const_cast<char*>(utf8.c_str()),
+		static_cast<int>(utf8.size()),
+		NULL,
+		NULL
+	);
+#endif
 
 	return utf8;
 }

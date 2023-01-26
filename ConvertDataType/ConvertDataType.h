@@ -28,6 +28,7 @@ namespace MOONG
 		static const int string_to_integer(const std::string str);
 		static const std::wstring string_to_wstring(const std::string str);
 		static const std::string string_to_utf8(const std::string str);
+		static const bool string_to_bool(const std::string str);
 
 		static const std::wstring utf8_to_wstring(const std::string str);
 		static const std::string utf8_to_string(const std::string str);

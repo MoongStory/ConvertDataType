@@ -1,6 +1,6 @@
-//#include "StdAfx.h"
-
 #include "ConvertDataType.h"
+
+#include "../../StringTool/StringTool/StringTool.h"
 
 #if _MSC_VER > 1200
 #include <locale>
@@ -170,6 +170,16 @@ const std::wstring MOONG::ConvertDataType::string_to_wstring(const std::string s
 const std::string MOONG::ConvertDataType::string_to_utf8(const std::string str)
 {
 	return MOONG::ConvertDataType::wstring_to_utf8(MOONG::ConvertDataType::string_to_wstring(str));
+}
+
+const bool MOONG::ConvertDataType::string_to_bool(const std::string str)
+{
+	if (MOONG::StringTool::tolower_keep_origin(MOONG::StringTool::trim_keep_origin(str)).compare("true") == 0)
+	{
+		return true;
+	}
+
+	return false;
 }
 
 const std::wstring MOONG::ConvertDataType::utf8_to_wstring(const std::string str)

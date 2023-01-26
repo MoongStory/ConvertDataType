@@ -40,7 +40,7 @@ int main()
 #if _MSC_VER > 1200
 	std::wcout << L"utf8_to_wstring[" << wstr << L"]" << std::endl;
 #else
- 	printf("utf8_to_wstring[%ws]\n", wstr.c_str());
+	printf("utf8_to_wstring[%ws]\n", wstr.c_str());
 #endif
 
 	std::cout << std::endl;
@@ -57,6 +57,11 @@ int main()
 #else
 	printf("utf8_to_string[%s]\n", str.c_str());
 #endif
+
+	std::cout << std::endl;
+
+	std::cout << "string_to_bool true[" << MOONG::ConvertDataType::string_to_bool("true") << "]" << std::endl;
+	std::cout << "string_to_bool false[" << MOONG::ConvertDataType::string_to_bool("false") << "]" << std::endl;
 
 	std::cout << std::endl;
 

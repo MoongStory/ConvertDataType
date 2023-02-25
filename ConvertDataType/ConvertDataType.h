@@ -19,11 +19,10 @@ namespace MOONG
 	private:
 
 	public:
+		static const std::string toString(const WORD word);
 		static const std::string toString(const DWORD dword);
 		static const std::string toString(const int integer);
 		static const std::string toString(const unsigned int unsigned_int);
-
-		static const std::string seconds_to_data(const unsigned long seconds);
 
 		static const int string_to_integer(const std::string str);
 		static const std::wstring string_to_wstring(const std::string str);

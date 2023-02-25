@@ -19,11 +19,6 @@ int main()
 
 	std::cout << std::endl;
 
-	unsigned long seconds = (55 * 24 * 60 * 60 * 1) + (2 * 60 * 60 * 1) + (61 * 60 * 1) + (60 * 1);
-	std::cout << "toString unsigned int[" << MOONG::ConvertDataType::seconds_to_data(seconds).c_str() << "]" << std::endl;
-
-	std::cout << std::endl;
-
 	const wchar_t* wchar_dummy = L"wstring_to_string, 한글 테스트";
 	std::string string_dummy(MOONG::ConvertDataType::wstring_to_string(wchar_dummy));
 	std::cout << string_dummy.c_str() << std::endl;
@@ -40,7 +35,7 @@ int main()
 #if _MSC_VER > 1200
 	std::wcout << L"utf8_to_wstring[" << wstr << L"]" << std::endl;
 #else
-	printf("utf8_to_wstring[%ws]\n", wstr.c_str());
+ 	printf("utf8_to_wstring[%ws]\n", wstr.c_str());
 #endif
 
 	std::cout << std::endl;

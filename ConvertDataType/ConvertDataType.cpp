@@ -11,6 +11,17 @@
 #include <sstream>
 #include <strsafe.h>
 
+const std::string MOONG::ConvertDataType::toString(const WORD word)
+{
+#if _MSC_VER > 1200
+	return MOONG::ConvertDataType::toString<const WORD>(word);
+#else
+	std::ostringstream stream;
+	stream << word;
+	return stream.str();
+#endif
+}
+
 const std::string MOONG::ConvertDataType::toString(const DWORD dword)
 {
 #if _MSC_VER > 1200
@@ -42,66 +53,6 @@ const std::string MOONG::ConvertDataType::toString(const unsigned int unsigned_i
 	stream << unsigned_int;
 	return stream.str();
 #endif
-}
-
-const std::string MOONG::ConvertDataType::seconds_to_data(const unsigned long seconds)
-{
-	if (seconds < 0)
-	{
-		return "";
-	}
-
-	const unsigned long secOfDay = 60 * 60 * 24;
-	const unsigned long secOfHour = 60 * 60;
-	const unsigned long secOfMin = 60;
-
-	unsigned long day = seconds / secOfDay;
-	unsigned long hour = (seconds - day * secOfDay) / secOfHour;
-	unsigned long min = (seconds - day * secOfDay - hour * secOfHour) / secOfMin;
-	unsigned long sec = seconds - day * secOfDay - hour * secOfHour - min * secOfMin;
-
-	std::string strDay;
-	std::string strHour;
-	std::string strMin;
-	std::string strSec;
-
-	std::string result;
-
-	const int bufsize = 1024;
-	char buf[bufsize] = { 0 };
-	if (day > 0)
-	{
-		StringCbPrintfA(buf, bufsize, "%d일", day);
-		strDay = buf;
-	}
-	if (hour > 0)
-	{
-		StringCbPrintfA(buf, bufsize, "%d시간", hour);
-		strHour = buf;
-	}
-	if (min > 0)
-	{
-		StringCbPrintfA(buf, bufsize, "%d분", min);
-		strMin = buf;
-	}
-	if (sec > 0)
-	{
-		StringCbPrintfA(buf, bufsize, "%d초", sec);
-		strSec = buf;
-	}
-	else if (sec == 0 && (day > 0 || hour > 0 || min > 0))
-	{
-		strSec = "";
-	}
-	else
-	{
-		StringCbPrintfA(buf, bufsize, "%d초", sec);
-		strSec = buf;
-	}
-
-	result = strDay + strHour + strMin + strSec;
-
-	return result;
 }
 
 const int MOONG::ConvertDataType::string_to_integer(const std::string str)

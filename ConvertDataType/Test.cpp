@@ -80,5 +80,10 @@ int main()
 
 	std::cout << std::endl;
 
+	unsigned long long milliseconds = 1001;
+	SYSTEMTIME time = MOONG::ConvertDataType::milliseconds_to_systemtime(milliseconds);
+
+	std::cout << std::endl;
+
 	return 0;
 }

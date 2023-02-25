@@ -324,7 +324,38 @@ const std::string MOONG::ConvertDataType::wstring_to_utf8(const std::wstring wst
 	return utf8;
 }
 
-double MOONG::ConvertDataType::unsigned_int64_to_double(unsigned __int64 unsigned_int64_value)
+const SYSTEMTIME MOONG::ConvertDataType::milliseconds_to_systemtime(unsigned long long param_milliseconds)
+{
+	const unsigned long long milliseconds_equal_to_second = 1000;
+	const unsigned long long milliseconds_equal_to_minute = milliseconds_equal_to_second * 60;
+	const unsigned long long milliseconds_equal_to_hour = milliseconds_equal_to_minute * 60;
+	const unsigned long long milliseconds_equal_to_day = milliseconds_equal_to_hour * 24;
+
+	WORD day = static_cast<WORD>(param_milliseconds / milliseconds_equal_to_day);
+	param_milliseconds %= milliseconds_equal_to_day;
+
+	WORD hour = static_cast<WORD>(param_milliseconds / milliseconds_equal_to_hour);
+	param_milliseconds %= milliseconds_equal_to_hour;
+
+	WORD minute = static_cast<WORD>(param_milliseconds / milliseconds_equal_to_minute);
+	param_milliseconds %= milliseconds_equal_to_minute;
+
+	WORD second = static_cast<WORD>(param_milliseconds / milliseconds_equal_to_second);
+	param_milliseconds %= milliseconds_equal_to_second;
+
+	WORD milliseconds = static_cast<WORD>(param_milliseconds);
+
+	SYSTEMTIME calculated_time = { 0 };
+	calculated_time.wDay = day;
+	calculated_time.wHour = hour;
+	calculated_time.wMinute = minute;
+	calculated_time.wSecond = second;
+	calculated_time.wMilliseconds = milliseconds;
+
+	return calculated_time;
+}
+
+const double MOONG::ConvertDataType::unsigned_int64_to_double(unsigned __int64 unsigned_int64_value)
 {
 	__int64 i64 = (unsigned_int64_value & 0x7FFFFFFFFFFFFFF);
 	double dbl = static_cast<double>(i64);

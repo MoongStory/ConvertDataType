@@ -8,7 +8,8 @@
 #define _CONVERT_DATA_TYPE_H_
 
 #include <iostream>
-#include <Windows.h>
+//#include <Windows.h>
+#include <wtypes.h>
 
 namespace MOONG
 {
@@ -19,6 +20,7 @@ namespace MOONG
 	private:
 
 	public:
+		// 문자열
 		static const std::string toString(const WORD word);
 		static const std::string toString(const DWORD dword);
 		static const std::string toString(const int integer);
@@ -35,7 +37,10 @@ namespace MOONG
 		static const std::string wstring_to_string(const std::wstring wstr);
 		static const std::string wstring_to_utf8(const std::wstring wstr);
 
-		static double unsigned_int64_to_double(unsigned __int64 unsigned_int64_value);
+		// 숫자
+		static const SYSTEMTIME milliseconds_to_systemtime(unsigned long long param_milliseconds);
+
+		static const double unsigned_int64_to_double(unsigned __int64 unsigned_int64_value);
 	protected:
 	private:
 #if _MSC_VER > 1200

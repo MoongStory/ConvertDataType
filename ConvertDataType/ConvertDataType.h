@@ -62,7 +62,7 @@ namespace MOONG
 		static const std::string wstring_to_utf8(const std::wstring wstr);
 
 		// ¼ýÀÚ
-		static const SYSTEMTIME milliseconds_to_systemtime(unsigned long long param_milliseconds);
+		static const SYSTEMTIME milliseconds_to_systemtime(unsigned __int64 param_milliseconds);
 
 		static const double unsigned_int64_to_double(unsigned __int64 unsigned_int64_value);
 	protected:

@@ -324,12 +324,12 @@ const std::string MOONG::ConvertDataType::wstring_to_utf8(const std::wstring wst
 	return utf8;
 }
 
-const SYSTEMTIME MOONG::ConvertDataType::milliseconds_to_systemtime(unsigned long long param_milliseconds)
+const SYSTEMTIME MOONG::ConvertDataType::milliseconds_to_systemtime(unsigned __int64 param_milliseconds)
 {
-	const unsigned long long milliseconds_equal_to_second = 1000;
-	const unsigned long long milliseconds_equal_to_minute = milliseconds_equal_to_second * 60;
-	const unsigned long long milliseconds_equal_to_hour = milliseconds_equal_to_minute * 60;
-	const unsigned long long milliseconds_equal_to_day = milliseconds_equal_to_hour * 24;
+	const unsigned __int64 milliseconds_equal_to_second = 1000;
+	const unsigned __int64 milliseconds_equal_to_minute = milliseconds_equal_to_second * 60;
+	const unsigned __int64 milliseconds_equal_to_hour = milliseconds_equal_to_minute * 60;
+	const unsigned __int64 milliseconds_equal_to_day = milliseconds_equal_to_hour * 24;
 
 	WORD day = static_cast<WORD>(param_milliseconds / milliseconds_equal_to_day);
 	param_milliseconds %= milliseconds_equal_to_day;

@@ -5,17 +5,17 @@
 int main()
 {
 	DWORD dword = 123;
-	std::cout << "toString DWORD[" << MOONG::ConvertDataType::toString(dword).c_str() << "]" << std::endl;
+	std::cout << "toString DWORD[" << MOONG::ConvertDataType::to_string(dword).c_str() << "]" << std::endl;
 
 	std::cout << std::endl;
 
 	int integer = 123;
-	std::cout << "toString int[" << MOONG::ConvertDataType::toString(integer).c_str() << "]" << std::endl;
+	std::cout << "toString int[" << MOONG::ConvertDataType::to_string(integer).c_str() << "]" << std::endl;
 
 	std::cout << std::endl;
 
 	unsigned int unsigned_integer = 123;
-	std::cout << "toString unsigned int[" << MOONG::ConvertDataType::toString(unsigned_integer).c_str() << "]" << std::endl;
+	std::cout << "toString unsigned int[" << MOONG::ConvertDataType::to_string(unsigned_integer).c_str() << "]" << std::endl;
 
 	std::cout << std::endl;
 

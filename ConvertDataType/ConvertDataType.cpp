@@ -11,10 +11,10 @@
 #include <sstream>
 #include <strsafe.h>
 
-const std::string MOONG::ConvertDataType::toString(const WORD word)
+const std::string MOONG::ConvertDataType::to_string(const WORD word)
 {
 #if _MSC_VER > 1200
-	return MOONG::ConvertDataType::toString<const WORD>(word);
+	return MOONG::ConvertDataType::to_string<const WORD>(word);
 #else
 	std::ostringstream stream;
 	stream << word;
@@ -22,10 +22,10 @@ const std::string MOONG::ConvertDataType::toString(const WORD word)
 #endif
 }
 
-const std::string MOONG::ConvertDataType::toString(const DWORD dword)
+const std::string MOONG::ConvertDataType::to_string(const DWORD dword)
 {
 #if _MSC_VER > 1200
-	return MOONG::ConvertDataType::toString<const DWORD>(dword);
+	return MOONG::ConvertDataType::to_string<const DWORD>(dword);
 #else
 	std::ostringstream stream;
 	stream << dword;
@@ -33,10 +33,10 @@ const std::string MOONG::ConvertDataType::toString(const DWORD dword)
 #endif
 }
 
-const std::string MOONG::ConvertDataType::toString(const int integer)
+const std::string MOONG::ConvertDataType::to_string(const int integer)
 {
 #if _MSC_VER > 1200
-	return MOONG::ConvertDataType::toString<const int>(integer);
+	return MOONG::ConvertDataType::to_string<const int>(integer);
 #else
 	std::ostringstream stream;
 	stream << integer;
@@ -44,10 +44,10 @@ const std::string MOONG::ConvertDataType::toString(const int integer)
 #endif
 }
 
-const std::string MOONG::ConvertDataType::toString(const unsigned int unsigned_int)
+const std::string MOONG::ConvertDataType::to_string(const unsigned int unsigned_int)
 {
 #if _MSC_VER > 1200
-	return MOONG::ConvertDataType::toString<const unsigned int>(unsigned_int);
+	return MOONG::ConvertDataType::to_string<const unsigned int>(unsigned_int);
 #else
 	std::ostringstream stream;
 	stream << unsigned_int;

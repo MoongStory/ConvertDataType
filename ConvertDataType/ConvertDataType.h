@@ -45,10 +45,10 @@ namespace MOONG
 
 	public:
 		// ¹®ÀÚ¿­
-		static const std::string toString(const WORD word);
-		static const std::string toString(const DWORD dword);
-		static const std::string toString(const int integer);
-		static const std::string toString(const unsigned int unsigned_int);
+		static const std::string to_string(const WORD word);
+		static const std::string to_string(const DWORD dword);
+		static const std::string to_string(const int integer);
+		static const std::string to_string(const unsigned int unsigned_int);
 
 		static const int string_to_integer(const std::string str);
 		static const std::wstring string_to_wstring(const std::string str);
@@ -69,7 +69,7 @@ namespace MOONG
 	private:
 #if _MSC_VER > 1200
 		template <typename T>
-		inline static const std::string toString(const T parameter)
+		inline static const std::string to_string(const T parameter)
 		{
 			std::ostringstream stream;
 			stream << parameter;

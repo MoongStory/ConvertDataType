@@ -32,7 +32,6 @@ SOFTWARE.
 #define _CONVERT_DATA_TYPE_H_
 
 #include <iostream>
-//#include <Windows.h>
 #include <wtypes.h>
 
 namespace MOONG
